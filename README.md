@@ -1,30 +1,19 @@
-# Tutorial 3
+# Tutorial 5
 
 ## Latihan Mandiri
-1. Cara implementasi mekanik *double jump*
-    * Pembuatan variabel limitasi *double jump*, yaitu variabel yang menghitung jumlah lompatan yang telah dilakukan
-        * `export (int) var max_jumps = 2`
-        * `var jumps_remaining = max_jumps`
-    * Kondisional yang memeriksa jumlah lompatan yang telah dilakukan Player.
-        
-        ```
-        if is_on_floor():
-            jumps_remaining = max_jumps
-        if Input.is_action_just_pressed("ui_up") and jumps_remaining > 0:
-            velocity.y = jump_speed
-            jumps_remaining -= 1
-        ```
-2. Cara implementasi mekanik *crouch*. *scaling* bernilai satu adalah wujud normal, sedangkan nilai setengahnya akan mengecilkan wujudnya.
-    * Pembuatan variabel acuan scaling ketika tombol *crouch* ditekan
-        * `export (float) var crouch_scale = 0.5`
-    * Kondisional yang mengaktivasi *crouch*
-        
-        ```
-        if Input.is_action_pressed("ui_down"):
-		    $Sprite.scale.y = crouch_scale
-        else:
-            $Sprite.scale.y = 1.0
-        ```
+1. Cara implementasi *animated sprite* pada Player
+    * Ubah *sprite* pada Player menjadi *AnimatedSprite*
+    * Masukkan *tile sheet* dan sesuaikan tiap framenya sesuai aktivitas yang sedang dilakukannya
+    * Ubah *script* pada `GDScript` untuk mengaktivasi animasi
+2. Cara implementasi objek Dino
+    * Lakukan hal yang sama pada Player
+    * Dikarenakan oleh Dino yang dibuat adalah Area2D, hal pembedanya hanyalah *script* yang menjadi *trigger* dari aktivasi animasi
+3. Cara implementasi SFX dan Backsound
+    * Masukkan *node* AudioStreamPlayer
+    * Untuk suara yang berulang, perlu dilakukannya *reimport* sehingga suara menjadi *looping*
+    * Masukkan suara tersebut ke *node*
+    * Ubah *script* pada `GDScript` untuk mengaktivasi SFX dan *Backsound*
+    * Untuk *backsound*, pengguna dapat mengubah pengaturan proyek dan ubah *scene* dari *backsound* menjadi *AutoLoad*.
 
 ## Version
 * Godot : 3.5.3
